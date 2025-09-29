@@ -1,0 +1,6 @@
+[
+  {"date": "2025-09-29", "condition": "Sunny", "temp": 30},
+  {"date": "2025-09-30", "condition": "Rainy", "temp": 24},
+  {"date": "2025-10-01", "condition": "Windy", "temp": 27}
+]
+
