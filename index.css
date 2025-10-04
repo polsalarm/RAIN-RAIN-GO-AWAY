@@ -1,0 +1,104 @@
+*{
+    outline: solid red 1px;
+}
+
+@font-face {
+    font-family: Poppins-Black;
+    src: url('assets/Poppins2/Poppins-Black.ttf');
+}
+
+
+.login{
+    margin-top:110px;
+}
+
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #34a4eb;
+    color: white;
+    text-align: center;
+    font-family: Poppins-Black;
+}
+
+.logo{
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 5px 0;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: white;
+}
+
+button[type="submit"] {
+    font-family: Poppins-Black;
+    width: 60%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #174969;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Signup prompt styling */
+.signup-prompt {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Signup link styling */
+.signup-prompt a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Signup link hover effect */
+.signup-prompt a:hover {
+    background-color: white;
+    color: #34a4eb;
+    border: 2px solid white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Active state when clicked */
+.signup-prompt a:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
