@@ -1,5 +1,149 @@
 # MERRA2 Data Download Scripts
 
+Using XAMPP for Our Website
+
+This guide explains how to set up and run our website locally using XAMPP, a free and open-source cross-platform web server package that includes Apache, MySQL, PHP, and phpMyAdmin.
+
+📂 Folder Overview
+File / Folder	Description
+/htdocs/	Main web directory where our website files go
+/htdocs/index.php	Entry point of the website
+/htdocs/config.php	Configuration file for database connections
+/htdocs/assets/	Static assets (CSS, JS, images, etc.)
+/htdocs/includes/	Reusable PHP modules and scripts
+🧩 Prerequisites
+1. Install XAMPP
+
+Download and install XAMPP from the official Apache Friends website:
+
+🔗 https://www.apachefriends.org/download.html
+
+Choose the version compatible with your operating system:
+
+Windows: .exe installer
+
+macOS: .dmg installer
+
+Linux: .run installer
+
+2. Install a Text Editor (Recommended)
+
+Use a modern code editor for easier configuration and PHP editing:
+
+VS Code
+
+Sublime Text
+
+Atom
+
+⚙️ Setup Instructions
+Option 1: Run the Website Locally (Recommended)
+
+Start XAMPP Control Panel
+
+Launch XAMPP Control Panel
+
+Start Apache and MySQL services
+
+Copy the Website Files
+
+Place your website folder inside:
+
+C:\xampp\htdocs\
+
+
+Example:
+
+C:\xampp\htdocs\our_website\
+
+
+Create the Database
+
+Open your browser and go to:
+👉 http://localhost/phpmyadmin
+
+Click Databases → New
+
+Enter a database name (e.g. our_website_db)
+
+Click Create
+
+Import the SQL File (if provided)
+
+In phpMyAdmin, select your new database
+
+Go to the Import tab
+
+Choose the .sql file from the database/ folder of the project
+
+Click Go
+
+Configure Database Connection
+
+Open config.php (or .env file, if used)
+
+Update database credentials:
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "our_website_db";
+
+
+Run the Website
+
+Open your browser and visit:
+👉 http://localhost/our_website
+
+Option 2: Access via Custom Port
+
+If Apache is running on a different port (e.g. 8080):
+👉 http://localhost:8080/our_website
+
+You can change ports in XAMPP Control Panel → Config → Apache (httpd.conf).
+
+🔐 Security Notes
+
+Never expose your local XAMPP server to the public internet.
+
+Keep config.php or .env files private (add them to .gitignore).
+
+Use strong MySQL passwords in production environments.
+
+For collaboration, share only the project files, not your xampp folder.
+
+🧰 Troubleshooting
+Problem	Solution
+Apache won't start	Stop other services using port 80 (e.g. Skype, IIS), or change Apache port in XAMPP settings
+MySQL won’t start	Check if port 3306 is already in use, or delete ib_logfile* files in the MySQL data directory
+Website not loading	Ensure files are in htdocs/our_website/ and Apache is running
+Database connection error	Check config.php credentials and ensure MySQL is running
+🧑‍💻 For Team Collaboration
+
+Each developer should:
+
+Install XAMPP locally.
+
+Clone the project repository into their htdocs folder.
+
+Import the database file.
+
+Use their local setup for development.
+
+Add database/ and config.php to .gitignore to prevent sharing sensitive data.
+
+📞 Support
+
+If you encounter issues:
+
+Verify Apache and MySQL are running
+
+Check database configuration
+
+Inspect the browser console for PHP or JS errors
+
+Ask the team lead or system admin for help
+
 This folder contains Python scripts to download MERRA2 data from NASA Earthdata using your team's credentials.
 
 ## Files
