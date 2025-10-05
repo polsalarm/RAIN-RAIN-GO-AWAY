@@ -1,5 +1,3 @@
-Perfect 👍 — here’s your full, properly formatted **`README.md`** that includes both sections:
-
 ✅ *Using XAMPP for Our Website*
 ✅ *MERRA2 Data Download Scripts*
 
