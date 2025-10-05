@@ -9,12 +9,44 @@ A simplified version of the MERRA2 data download script.
 import os
 import subprocess
 import getpass
+import shutil
+
+
+def find_wget():
+    """Find wget executable on the system."""
+    wget_path = shutil.which('wget')
+    if wget_path:
+        return wget_path
+    
+    # On Windows, try common paths
+    if os.name == 'nt':
+        common_paths = [
+            r'C:\Program Files\GnuWin32\bin\wget.exe',
+            r'C:\Program Files (x86)\GnuWin32\bin\wget.exe',
+            r'C:\Windows\System32\wget.exe',
+            r'C:\tools\wget\wget.exe',
+            r'C:\ProgramData\chocolatey\bin\wget.exe',
+        ]
+        for path in common_paths:
+            if os.path.exists(path):
+                return path
+    
+    return None
 
 
 def main():
     """Simple download function."""
     print("MERRA2 Data Downloader")
     print("=" * 22)
+    
+    # Find wget
+    wget_path = find_wget()
+    if not wget_path:
+        print("Error: wget not found!")
+        print("Please install wget and make sure it's in your PATH.")
+        return
+    
+    print(f"Using wget at: {wget_path}")
     
     # Get username
     username = input("Enter your NASA Earthdata username: ").strip()
@@ -41,9 +73,9 @@ def main():
     download_dir = "downloaded_data"
     os.makedirs(download_dir, exist_ok=True)
     
-    # Build and run wget command
+    # Build and run wget command using full path
     cmd = [
-        'wget',
+        wget_path,  # Use the actual wget path
         '--no-check-certificate',
         f'--load-cookies={cookies_file}',
         f'--save-cookies={cookies_file}',

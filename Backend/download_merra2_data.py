@@ -22,14 +22,48 @@ import getpass
 from pathlib import Path
 
 
+def find_wget_executable():
+    """Find the wget executable in the system PATH."""
+    import shutil
+    
+    # Try to find wget using shutil.which (cross-platform)
+    wget_path = shutil.which('wget')
+    if wget_path:
+        return wget_path
+    
+    # On Windows, try common installation paths
+    if os.name == 'nt':  # Windows
+        common_paths = [
+            r'C:\Program Files\GnuWin32\bin\wget.exe',
+            r'C:\Program Files (x86)\GnuWin32\bin\wget.exe',
+            r'C:\Windows\System32\wget.exe',
+            r'C:\tools\wget\wget.exe',
+            r'C:\ProgramData\chocolatey\bin\wget.exe',
+        ]
+        
+        for path in common_paths:
+            if os.path.exists(path):
+                return path
+    
+    return None
+
+
 def check_wget_availability():
-    """Check if wget is available on the system."""
+    """Check if wget is available on the system and return its path."""
+    wget_path = find_wget_executable()
+    
+    if not wget_path:
+        return False, None
+    
     try:
-        subprocess.run(['wget', '--version'], 
-                      capture_output=True, check=True)
-        return True
+        # Test if wget is working
+        result = subprocess.run([wget_path, '--version'], 
+                              capture_output=True, check=True, text=True)
+        print(f"Found wget at: {wget_path}")
+        print(f"Version: {result.stdout.split()[2]}")  # Extract version number
+        return True, wget_path
     except (subprocess.CalledProcessError, FileNotFoundError):
-        return False
+        return False, None
 
 
 def get_user_credentials():
@@ -86,12 +120,12 @@ def create_download_directory():
     return download_dir
 
 
-def run_wget_command(username, password, url_file, cookies_file, download_dir):
+def run_wget_command(wget_path, username, password, url_file, cookies_file, download_dir):
     """Execute the wget command to download MERRA2 data."""
     
-    # Construct the wget command
+    # Construct the wget command using the full path to wget
     cmd = [
-        'wget',
+        wget_path,  # Use the actual wget path found on system
         '--no-check-certificate',
         f'--load-cookies={cookies_file}',
         f'--save-cookies={cookies_file}',
@@ -102,6 +136,7 @@ def run_wget_command(username, password, url_file, cookies_file, download_dir):
         '--continue',  # Resume partial downloads
         '--timeout=30',  # Set timeout
         '--tries=3',  # Number of retries
+        '--progress=bar',  # Show progress bar
         '-i', str(url_file)
     ]
     
@@ -127,13 +162,18 @@ def main():
     print("=" * 25)
     print()
     
-    # Check if wget is available
-    if not check_wget_availability():
-        print("Error: wget is not installed or not available in PATH.")
-        print("Please install wget first:")
-        print("- On Windows: Install wget using Chocolatey, Scoop, or download from https://eternallybored.org/misc/wget/")
+    # Check if wget is available and get its path
+    wget_available, wget_path = check_wget_availability()
+    if not wget_available:
+        print("Error: wget is not installed or not available.")
+        print("\nPlease install wget first:")
+        print("- On Windows:")
+        print("  * Chocolatey: choco install wget")
+        print("  * Scoop: scoop install wget") 
+        print("  * Manual: Download from https://eternallybored.org/misc/wget/")
         print("- On macOS: brew install wget")
         print("- On Linux: apt-get install wget or yum install wget")
+        print("\nAfter installation, make sure wget is in your system PATH.")
         sys.exit(1)
     
     # Find the URL file
@@ -172,7 +212,7 @@ def main():
         sys.exit(0)
     
     # Run the download
-    success = run_wget_command(username, password, url_file, cookies_file, download_dir)
+    success = run_wget_command(wget_path, username, password, url_file, cookies_file, download_dir)
     
     if success:
         print("\n✓ Download completed successfully!")

@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "MERRA-2 Surface Air Temperature at 14.5995N, 120.9842E",
+    "variable": "T",
+    "description": "Surface temperature at human level (975.0 hPa pressure level)",
+    "target_coordinates": {
+      "lat": 14.5995,
+      "lon": 120.9842
+    },
+    "actual_coordinates": {
+      "lat": 14.5,
+      "lon": 121.25
+    },
+    "data_source": "MERRA2_400.inst3_3d_asm_Np.20250802.nc4",
+    "total_files_available": 5,
+    "data_directory": "data",
+    "units": "K"
+  },
+  "pressure_level": 975.0,
+  "times": [
+    0,
+    180,
+    360,
+    540,
+    720,
+    900,
+    1080,
+    1260
+  ],
+  "time_units": "minutes since 2025-08-02 00:00:00",
+  "surface_temperature_data": [
+    298.998291015625,
+    301.19036865234375,
+    302.1837463378906,
+    301.09844970703125,
+    299.48272705078125,
+    298.7637634277344,
+    298.4045715332031,
+    298.15032958984375
+  ],
+  "temperature_celsius": [
+    25.85,
+    28.04,
+    29.03,
+    27.95,
+    26.33,
+    25.61,
+    25.25,
+    25.0
+  ],
+  "time_readable": [
+    "2015-01-02 00:00:00 UTC",
+    "2015-01-02 03:00:00 UTC",
+    "2015-01-02 06:00:00 UTC",
+    "2015-01-02 09:00:00 UTC",
+    "2015-01-02 12:00:00 UTC",
+    "2015-01-02 15:00:00 UTC",
+    "2015-01-02 18:00:00 UTC",
+    "2015-01-02 21:00:00 UTC"
+  ]
+}
