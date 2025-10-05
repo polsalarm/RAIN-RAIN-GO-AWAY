@@ -281,7 +281,7 @@ chmod +x simple_download.py
 
 ### 🖥️ Example Output
 
-```
+
 MERRA2 Data Download Tool
 =========================
 
@@ -334,9 +334,7 @@ If you encounter issues:
 3. Ensure you have internet connectivity
 4. Check the console output for specific error messages
 
-```
+
 
 ---
 
-Would you like me to make this Markdown file downloadable as a ready-to-use `README.md` file? I can generate it and give you the link.
-```
