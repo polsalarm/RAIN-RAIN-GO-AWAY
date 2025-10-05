@@ -5,7 +5,7 @@ All headings, tables, and code blocks are now Markdown-formatted for GitHub or a
 
 ---
 
-```markdown
+
 # MERRA2 Data Download Scripts
 
 ## Using XAMPP for Our Website
@@ -43,7 +43,7 @@ Use a modern code editor for easier configuration and PHP editing:
 - [Sublime Text](https://www.sublimetext.com/)
 - [Atom](https://atom.io/)
 
----
+
 
 ### ⚙️ Setup Instructions
 
@@ -100,7 +100,6 @@ If Apache is running on a different port (e.g. 8080):
 
 You can change ports in **XAMPP Control Panel → Config → Apache (httpd.conf)**.
 
----
 
 ### 🔐 Security Notes
 
@@ -109,7 +108,7 @@ You can change ports in **XAMPP Control Panel → Config → Apache (httpd.conf)
 - Use strong MySQL passwords in production environments.  
 - For collaboration, share only the project files, not your `xampp` folder.
 
----
+
 
 ### 🧰 Troubleshooting
 
@@ -132,7 +131,7 @@ Each developer should:
 
 Add `database/` and `config.php` to `.gitignore` to prevent sharing sensitive data.
 
----
+
 
 ### 📞 Support
 
