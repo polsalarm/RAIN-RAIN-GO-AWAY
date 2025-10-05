@@ -16,15 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Sign Up - Weather Calendar</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-    <h2>Sign Up</h2>
-    <form method="post">
-        <input type="text" name="username" placeholder="Choose username" required><br>
-        <input type="password" name="password" placeholder="Choose password" required><br>
-        <button type="submit">Register</button>
-    </form>
+    <div class="login">
+        <img class="logo" src="assets/logo3.svg">
+        <div class="login-container">
+            <h2>Sign Up</h2>
+            <form method="post">
+                <input type="text" name="username" placeholder="Choose username" required><br>
+                <input type="password" name="password" placeholder="Choose password" required><br>
+                <button type="submit">Register</button>
+            </form>
+            <p class="signup-prompt">Already have an account? <a href="index.php">Login here</a></p>
+        </div>
+    </div>
 </body>
 </html>
 
