@@ -1,0 +1,15 @@
+# Ignore credentials
+.netrc
+
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+
+# netCDF and other large data files
+*.nc4
+*.nc
+*.h5
+
+# OS files
+Thumbs.db
+Desktop.ini
