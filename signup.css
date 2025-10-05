@@ -102,23 +102,20 @@ button[type="submit"]:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Page transition animations */
+/* Body styling for signup page */
 body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #174969, #34a4eb);
+    font-family: Arial, sans-serif;
     animation: fadeIn 0.8s ease-in-out;
 }
 
 /* Page fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
+
+/* Container slide-in animation */
 .login {
     animation: slideInFromBottom 0.6s ease-out 0.2s both;
 }
@@ -150,25 +147,6 @@ body {
     }
 }
 
-/* Form container animation */
-.login-container {
-    animation: slideInFromLeft 0.7s ease-out 0.6s both;
-}
 
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Enhanced link transitions */
-.signup-prompt a {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 

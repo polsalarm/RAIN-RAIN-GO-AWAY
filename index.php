@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Login - Weather Calendar</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="signup.css">
 </head>
 <body>
     <div class = "login">
-    <img class="logo" src="assets/logo.svg">
+    <img class="logo" src="assets/logo3.svg">
     <div class="login-container">
     <h2>Login</h2>
     <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>

@@ -139,7 +139,7 @@ $downloadData = [
 </head>
 <body>
 <div class="container">
-    <img class="logo" src="assets/logo2.svg" alt="Logo">
+    <img class="logo" src="assets/logo3.svg" alt="Logo">
     <div class="welcome">
         Welcome, <?php echo $_SESSION['user']; ?>!
     </div>
